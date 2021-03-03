@@ -158,6 +158,7 @@
           ['OS=="mac"', { 'mpg123_backend%': 'coreaudio' }],
           ['OS=="win"', { 'mpg123_backend%': 'win32' }],
           ['OS=="linux"', { 'mpg123_backend%': 'alsa' }],
+          ['OS=="freebsd"', { 'mpg123_backend%': 'alsa' }],
           ['OS=="solaris"', { 'mpg123_backend%': 'sun' }],
         ]
       },
@@ -215,6 +216,21 @@
           'link_settings': {
             'libraries': [
               '-lwinmm.lib',
+            ],
+          }
+        }],
+        ['mpg123_backend=="pulse"', {
+          'link_settings': {
+            'libraries': [
+              '-lpulse',
+              '-lpulse-simple',
+            ],
+          }
+        }],
+        ['mpg123_backend=="jack"', {
+          'link_settings': {
+            'libraries': [
+              '-ljack',
             ],
           }
         }],
